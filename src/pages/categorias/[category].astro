@@ -1,0 +1,236 @@
+---
+import { getCollection } from 'astro:content';
+import SiteFooter from '../../components/SiteFooter.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import Layout from '../../layouts/Layout.astro';
+import { categories } from '../../data/learning';
+
+export async function getStaticPaths() {
+	const publishedLessons = (await getCollection('lessons')).filter((lesson) => !lesson.data.draft);
+
+	return categories.map((category) => ({
+		params: { category: category.slug },
+		props: {
+			category,
+			lessons: publishedLessons
+				.filter((lesson) => lesson.data.category === category.slug)
+				.sort((a, b) => a.data.order - b.data.order),
+		},
+	}));
+}
+
+const { category, lessons } = Astro.props;
+---
+
+<Layout
+	title={`${category.title} | ArquiCode`}
+	description={category.description}
+>
+	<SiteHeader />
+	<main class="category-page">
+		<div class="category-content">
+			<a class="back-link" href="/#categorias">
+				<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16 10H4m5 5-5-5 5-5" /></svg>
+				Todas las categorías
+			</a>
+			<p class="eyebrow">Ruta de aprendizaje</p>
+			<h1>{category.title}</h1>
+			<p class="category-description">{category.description}</p>
+
+			{lessons.length > 0 ? (
+				<ol class="lesson-list">
+					{lessons.map((lesson) => (
+						<li>
+							<a href={`/lecciones/${lesson.id}/`}>
+								<span>
+									<strong>{lesson.data.title}</strong>
+									<span class="lesson-description">{lesson.data.description}</span>
+								</span>
+								<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5" /></svg>
+							</a>
+						</li>
+					))}
+				</ol>
+			) : (
+				<div class="empty-category">
+					<span class="empty-mark" aria-hidden="true">
+						<svg viewBox="0 0 32 32"><path d="M8 7h16M8 13h16M8 19h10M8 25h7" /><circle cx="24" cy="23" r="5" /><path d="M24 20v3l2 1" /></svg>
+					</span>
+					<div>
+						<h2>Estamos preparando esta ruta.</h2>
+						<p>
+							Las lecciones de esta categoría se publicarán aquí cuando estén listas. Por ahora no hay
+							contenido publicado.
+						</p>
+					</div>
+				</div>
+			)}
+		</div>
+	</main>
+	<SiteFooter />
+</Layout>
+
+<style>
+	.category-page {
+		min-height: calc(100vh - 370px);
+		padding: 74px 24px 100px;
+	}
+
+	.category-content {
+		width: min(790px, 100%);
+		margin: 0 auto;
+	}
+
+	.back-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		margin-bottom: 65px;
+		color: var(--muted);
+		font-size: 0.82rem;
+		text-decoration: none;
+	}
+
+	.back-link:hover {
+		color: var(--text);
+	}
+
+	.back-link svg,
+	.lesson-list a > svg {
+		width: 18px;
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 1.6;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+
+	.eyebrow {
+		margin: 0 0 15px;
+		color: var(--accent);
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	h1 {
+		margin: 0;
+		color: var(--text);
+		font-size: clamp(2.4rem, 7vw, 3.6rem);
+		letter-spacing: -0.06em;
+		line-height: 1.1;
+	}
+
+	.category-description {
+		max-width: 610px;
+		margin: 17px 0 40px;
+		color: var(--muted);
+		font-size: 1rem;
+		line-height: 1.75;
+	}
+
+	.empty-category {
+		display: flex;
+		align-items: flex-start;
+		gap: 18px;
+		padding: 25px;
+		border: 1px dashed rgba(173, 187, 220, 0.22);
+		border-radius: 12px;
+		background: rgba(18, 26, 43, 0.56);
+	}
+
+	.empty-mark {
+		width: 46px;
+		height: 46px;
+		flex: 0 0 46px;
+		display: grid;
+		place-items: center;
+		border: 1px solid rgba(153, 168, 255, 0.17);
+		border-radius: 11px;
+		color: var(--accent);
+		background: rgba(105, 126, 235, 0.09);
+	}
+
+	.empty-mark svg {
+		width: 24px;
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 1.4;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+
+	.empty-category h2 {
+		margin: 1px 0 7px;
+		color: var(--text);
+		font-size: 1rem;
+	}
+
+	.empty-category p {
+		margin: 0;
+		color: var(--muted);
+		font-size: 0.85rem;
+		line-height: 1.65;
+	}
+
+	.lesson-list {
+		display: grid;
+		gap: 12px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.lesson-list a {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 18px;
+		padding: 20px 22px;
+		border: 1px solid var(--line);
+		border-radius: 10px;
+		background: var(--surface);
+		text-decoration: none;
+		transition: border-color 160ms ease;
+	}
+
+	.lesson-list a:hover {
+		border-color: rgba(153, 168, 255, 0.37);
+	}
+
+	.lesson-list a > span {
+		display: grid;
+		gap: 7px;
+	}
+
+	.lesson-list strong {
+		color: var(--text);
+		font-size: 0.95rem;
+	}
+
+	.lesson-description {
+		color: var(--muted);
+		font-size: 0.82rem;
+		line-height: 1.6;
+	}
+
+	.lesson-list a > svg {
+		flex: 0 0 18px;
+		color: var(--accent);
+	}
+
+	@media (max-width: 600px) {
+		.category-page {
+			padding: 48px 18px 72px;
+		}
+
+		.back-link {
+			margin-bottom: 51px;
+		}
+
+		.empty-category {
+			padding: 20px;
+		}
+	}
+</style>

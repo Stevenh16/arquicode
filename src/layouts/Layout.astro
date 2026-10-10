@@ -1,23 +1,97 @@
+---
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = 'ArquiCode — Comprende el código. Diseña mejores sistemas',
+	description = 'Aprende programación orientada a objetos, principios de diseño y arquitectura de software con conceptos claros, ejemplos prácticos y código.',
+} = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
+		<meta name="theme-color" content="#0d121f" />
+		<meta name="description" content={description} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
 
-<style>
-	html,
+<style is:global>
+	:root {
+		font-family:
+			Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+		color: #edf0f8;
+		background: #0d121f;
+		font-synthesis: none;
+		text-rendering: optimizeLegibility;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		--text: #edf0f8;
+		--muted: #a0a9bd;
+		--subtle: #737f96;
+		--accent: #99a8ff;
+		--accent-strong: #b6c0ff;
+		--line: rgba(173, 187, 220, 0.13);
+		--surface: #121a2b;
+		--surface-raised: #172136;
+		--content-width: 1160px;
+		color-scheme: dark;
+		scroll-behavior: smooth;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	html {
+		min-width: 320px;
+		scroll-padding-top: 24px;
+	}
+
 	body {
+		min-width: 320px;
 		margin: 0;
-		width: 100%;
-		height: 100%;
+	}
+
+	a {
+		color: inherit;
+	}
+
+	a:focus-visible,
+	button:focus-visible,
+	summary:focus-visible {
+		outline: 2px solid var(--accent-strong);
+		outline-offset: 4px;
+	}
+
+	::selection {
+		color: #0d121f;
+		background: #b6c0ff;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		:root {
+			scroll-behavior: auto;
+		}
+
+		*,
+		*::before,
+		*::after {
+			scroll-behavior: auto !important;
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+		}
 	}
 </style>

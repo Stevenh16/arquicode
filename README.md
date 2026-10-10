@@ -27,7 +27,27 @@ La plataforma está organizada en las siguientes categorías:
 | **Arquitectura de software** | Arquitectura por capas, MVC, arquitectura hexagonal, Clean Architecture y otros enfoques.               |
 | **Práctica y proyectos**     | Ejercicios, análisis de código y actividades para aplicar los conocimientos adquiridos.                 |
 
-*Las categorías y los contenidos se incorporarán progresivamente durante el desarrollo del proyecto.*
+*Las rutas de las seis categorías ya están disponibles; las lecciones se incorporarán progresivamente.*
+
+### Publicar una lección
+
+Las lecciones publicadas se escriben como archivos Markdown dentro de `src/content/lessons/`. Se pueden
+organizar en subdirectorios; la ruta de cada archivo determina su URL bajo `/lecciones/`. Cada archivo
+debe incluir estos datos:
+
+```yaml
+---
+title: "Título de la lección"
+description: "Qué aprenderá el lector en esta lección."
+category: fundamentos-poo
+order: 1
+draft: false
+---
+```
+
+`category` acepta `fundamentos-poo`, `principios`, `solid`, `patrones`, `arquitectura` o `practica`.
+Las lecciones que tengan `draft: true` no se publican. Las publicadas aparecen automáticamente en su
+categoría y, si están entre las primeras por `order`, en la portada.
 
 ## 💡 Metodología de aprendizaje
 
@@ -71,8 +91,6 @@ git clone https://github.com/Stevenh16/arquicode.git
 cd arquicode
 ```
 
-> Sustituye `TU-USUARIO` por el nombre de usuario propietario del repositorio y ajusta la URL si el repositorio tiene otro nombre.
-
 ### 2. Instalar las dependencias
 
 ```bash
@@ -115,12 +133,12 @@ La estructura puede evolucionar a medida que se desarrollen nuevas funcionalidad
 arquicode/
 ├── public/             # Recursos estáticos e imágenes
 ├── src/
-│   ├── assets/         # Recursos procesados por Astro
-│   ├── components/     # Componentes reutilizables
-│   ├── content/        # Contenido educativo y lecciones
-│   ├── layouts/        # Plantillas de las páginas
-│   ├── pages/          # Rutas y páginas del sitio
-│   └── styles/         # Estilos globales
+│   ├── components/     # Cabecera, pie de página e iconos reutilizables
+│   ├── content/        # Lecciones Markdown
+│   ├── data/           # Categorías educativas compartidas
+│   ├── layouts/        # Plantilla y estilos globales
+│   ├── pages/          # Portada y rutas estáticas de categorías/lecciones
+│   └── content.config.ts # Esquema de la colección de lecciones
 ├── astro.config.mjs    # Configuración de Astro
 ├── package.json        # Dependencias y comandos
 └── README.md           # Documentación del proyecto

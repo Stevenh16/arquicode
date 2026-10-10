@@ -1,0 +1,143 @@
+---
+import { categories } from '../data/learning';
+---
+
+<footer class="site-footer">
+	<div class="footer-main">
+		<div class="footer-about">
+			<a class="footer-brand" href="/#inicio">Arqui<span>Code</span></a>
+			<p>Aprende a comprender el código y a diseñar software con intención.</p>
+		</div>
+		<div class="footer-links">
+			<h2>Aprende</h2>
+			<nav aria-label="Navegación del pie de página">
+				{categories.map((category) => (
+					<a href={`/categorias/${category.slug}/`}>{category.title}</a>
+				))}
+			</nav>
+		</div>
+		<div class="footer-note">
+			<h2>Un proyecto independiente</h2>
+			<p>ArquiCode es un proyecto educativo independiente, creado para aprender y compartir.</p>
+			<a href="https://github.com/Stevenh16/arquicode" target="_blank" rel="noreferrer">
+				Repositorio en GitHub
+				<svg viewBox="0 0 18 18" aria-hidden="true">
+					<path d="M10 3h5v5m0-5L8 10M13 10v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h4" />
+				</svg>
+			</a>
+		</div>
+	</div>
+	<div class="footer-bottom">
+		<span>ArquiCode · Aprende a diseñar software.</span>
+		<span>Contenido educativo gratuito en español.</span>
+	</div>
+</footer>
+
+<style>
+	.site-footer {
+		border-top: 1px solid var(--line);
+		background: #0a0f1a;
+	}
+
+	.footer-main,
+	.footer-bottom {
+		width: min(1160px, calc(100% - 48px));
+		margin: 0 auto;
+	}
+
+	.footer-main {
+		display: grid;
+		grid-template-columns: 1.2fr 1fr 1fr;
+		gap: 64px;
+		padding: 64px 0 52px;
+	}
+
+	.footer-brand {
+		color: var(--text);
+		font-size: 1.25rem;
+		font-weight: 750;
+		letter-spacing: -0.045em;
+		text-decoration: none;
+	}
+
+	.footer-brand span {
+		color: var(--accent);
+	}
+
+	.footer-about p,
+	.footer-note p {
+		max-width: 300px;
+		margin: 14px 0 0;
+		color: var(--muted);
+		font-size: 0.9rem;
+		line-height: 1.75;
+	}
+
+	.footer-links h2,
+	.footer-note h2 {
+		margin: 0 0 17px;
+		color: var(--text);
+		font-size: 0.85rem;
+		font-weight: 650;
+	}
+
+	.footer-links nav {
+		display: grid;
+		gap: 11px;
+	}
+
+	.footer-links a,
+	.footer-note > a {
+		color: var(--muted);
+		font-size: 0.85rem;
+		text-decoration: none;
+	}
+
+	.footer-links a:hover,
+	.footer-note > a:hover {
+		color: var(--text);
+	}
+
+	.footer-note > a {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		margin-top: 17px;
+	}
+
+	.footer-note > a svg {
+		width: 15px;
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 1.5;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+
+	.footer-bottom {
+		display: flex;
+		justify-content: space-between;
+		gap: 20px;
+		padding: 19px 0;
+		border-top: 1px solid var(--line);
+		color: var(--muted);
+		font-size: 0.75rem;
+	}
+
+	@media (max-width: 700px) {
+		.footer-main {
+			grid-template-columns: 1fr 1fr;
+			gap: 36px 28px;
+			padding: 48px 0 38px;
+		}
+
+		.footer-about {
+			grid-column: 1 / -1;
+		}
+
+		.footer-bottom {
+			flex-direction: column;
+			gap: 8px;
+		}
+	}
+</style>

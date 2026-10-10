@@ -1,0 +1,179 @@
+---
+import { getCollection, render } from 'astro:content';
+import SiteFooter from '../../components/SiteFooter.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import Layout from '../../layouts/Layout.astro';
+import { getCategory } from '../../data/learning';
+
+export async function getStaticPaths() {
+	const lessons = (await getCollection('lessons')).filter((lesson) => !lesson.data.draft);
+
+	return lessons.map((lesson) => ({
+		params: { slug: lesson.id },
+		props: { lesson },
+	}));
+}
+
+const { lesson } = Astro.props;
+const { Content } = await render(lesson);
+const category = getCategory(lesson.data.category);
+---
+
+<Layout title={`${lesson.data.title} | ArquiCode`} description={lesson.data.description}>
+	<SiteHeader />
+	<main class="lesson-page">
+		<article class="lesson-content">
+			<a class="back-link" href={`/categorias/${lesson.data.category}/`}>
+				<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16 10H4m5 5-5-5 5-5" /></svg>
+				{category?.title ?? 'Volver a categorías'}
+			</a>
+			<header>
+				<p class="eyebrow">{category?.title}</p>
+				<h1>{lesson.data.title}</h1>
+				<p class="lesson-lead">{lesson.data.description}</p>
+			</header>
+			<div class="prose">
+				<Content />
+			</div>
+		</article>
+	</main>
+	<SiteFooter />
+</Layout>
+
+<style>
+	.lesson-page {
+		padding: 64px 24px 110px;
+	}
+
+	.lesson-content {
+		width: min(760px, 100%);
+		margin: 0 auto;
+	}
+
+	.back-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		margin-bottom: 61px;
+		color: var(--muted);
+		font-size: 0.82rem;
+		text-decoration: none;
+	}
+
+	.back-link:hover {
+		color: var(--text);
+	}
+
+	.back-link svg {
+		width: 18px;
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 1.6;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+
+	.eyebrow {
+		margin: 0 0 14px;
+		color: var(--accent);
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	h1 {
+		margin: 0;
+		color: var(--text);
+		font-size: clamp(2.45rem, 7vw, 3.7rem);
+		letter-spacing: -0.06em;
+		line-height: 1.1;
+	}
+
+	.lesson-lead {
+		margin: 18px 0 47px;
+		color: var(--muted);
+		font-size: 1.05rem;
+		line-height: 1.75;
+	}
+
+	.prose {
+		color: #c2cad9;
+		font-size: 1rem;
+		line-height: 1.85;
+	}
+
+	.prose :global(h2),
+	.prose :global(h3) {
+		margin: 2.2em 0 0.75em;
+		color: var(--text);
+		letter-spacing: -0.03em;
+		line-height: 1.3;
+	}
+
+	.prose :global(h2) {
+		font-size: 1.65rem;
+	}
+
+	.prose :global(h3) {
+		font-size: 1.25rem;
+	}
+
+	.prose :global(p),
+	.prose :global(ul),
+	.prose :global(ol) {
+		margin: 0 0 1.25em;
+	}
+
+	.prose :global(a) {
+		color: var(--accent-strong);
+		text-underline-offset: 3px;
+	}
+
+	.prose :global(code) {
+		padding: 0.12em 0.35em;
+		border: 1px solid var(--line);
+		border-radius: 4px;
+		background: var(--surface);
+		font-size: 0.88em;
+	}
+
+	.prose :global(pre) {
+		overflow-x: auto;
+		padding: 20px;
+		border: 1px solid var(--line);
+		border-radius: 10px;
+		background: #090e18;
+		font-size: 0.85rem;
+		line-height: 1.65;
+	}
+
+	.prose :global(pre code) {
+		padding: 0;
+		border: 0;
+		background: none;
+	}
+
+	.prose :global(blockquote) {
+		margin: 1.8em 0;
+		padding: 3px 0 3px 20px;
+		border-left: 2px solid var(--accent);
+		color: var(--muted);
+	}
+
+	.prose :global(img) {
+		max-width: 100%;
+		height: auto;
+		border-radius: 10px;
+	}
+
+	@media (max-width: 600px) {
+		.lesson-page {
+			padding: 45px 18px 75px;
+		}
+
+		.back-link {
+			margin-bottom: 47px;
+		}
+	}
+</style>
