@@ -37,9 +37,9 @@ public class Main{
 }
 ```
 
-```cmd
+```text
 Ana pidió 2 Libro
-Total: 25va 
+Total: 25 
 ```
 
 Esto sirve para un ejemplo pequeño. Pero, al añadir más pedidos, hay que crear y coordinar muchas mas variables, y recordar qué datos pertenecen a un solo pedido. También vamos a terminar repitiendo el cálculo en distintos lugares.
@@ -47,6 +47,9 @@ Esto sirve para un ejemplo pequeño. Pero, al añadir más pedidos, hay que crea
 Nos conviene representar cada pedido como una unidad: con sus propias caracteticas y sus propios comportamientos que se realizan en ellos. Las clases y los objetos permiten modelar esa idea.
 
 ## 2. Explicación intuitiva
+
+![Error al cargar imagen](../../../public/images/clases-objetos.jpg)
+
 
 Piensa en la descripción de un pedido como un molde que indica qué información se guarda y qué operaciones se pueden hacer con ella. Esa descripción es la **clase**. Cada pedido que se registra rellenando ese molde es un **objeto**.
 
