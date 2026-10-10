@@ -135,9 +135,9 @@ const { category, lessons } = Astro.props;
 		align-items: flex-start;
 		gap: 18px;
 		padding: 25px;
-		border: 1px dashed rgba(173, 187, 220, 0.22);
+		border: 1px dashed rgba(var(--color-secondary-rgb), 0.42);
 		border-radius: 12px;
-		background: rgba(18, 26, 43, 0.56);
+		background: var(--color-background);
 	}
 
 	.empty-mark {
@@ -146,10 +146,10 @@ const { category, lessons } = Astro.props;
 		flex: 0 0 46px;
 		display: grid;
 		place-items: center;
-		border: 1px solid rgba(153, 168, 255, 0.17);
+		border: 1px solid rgba(var(--color-secondary-rgb), 0.24);
 		border-radius: 11px;
-		color: var(--accent);
-		background: rgba(105, 126, 235, 0.09);
+		color: var(--color-primary);
+		background: rgba(var(--color-accent-rgb), 0.3);
 	}
 
 	.empty-mark svg {
@@ -196,7 +196,7 @@ const { category, lessons } = Astro.props;
 	}
 
 	.lesson-list a:hover {
-		border-color: rgba(153, 168, 255, 0.37);
+		border-color: var(--color-secondary);
 	}
 
 	.lesson-list a > span {

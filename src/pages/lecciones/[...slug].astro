@@ -98,7 +98,7 @@ const category = getCategory(lesson.data.category);
 	}
 
 	.prose {
-		color: #c2cad9;
+		color: var(--color-muted);
 		font-size: 1rem;
 		line-height: 1.85;
 	}
@@ -126,7 +126,7 @@ const category = getCategory(lesson.data.category);
 	}
 
 	.prose :global(a) {
-		color: var(--accent-strong);
+		color: var(--color-primary);
 		text-underline-offset: 3px;
 	}
 
@@ -143,7 +143,7 @@ const category = getCategory(lesson.data.category);
 		padding: 20px;
 		border: 1px solid var(--line);
 		border-radius: 10px;
-		background: #090e18;
+		background: var(--color-surface);
 		font-size: 0.85rem;
 		line-height: 1.65;
 	}
@@ -157,7 +157,7 @@ const category = getCategory(lesson.data.category);
 	.prose :global(blockquote) {
 		margin: 1.8em 0;
 		padding: 3px 0 3px 20px;
-		border-left: 2px solid var(--accent);
+		border-left: 2px solid var(--color-secondary);
 		color: var(--muted);
 	}
 

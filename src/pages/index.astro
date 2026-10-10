@@ -44,16 +44,16 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 				<svg class="architecture-diagram" viewBox="0 0 540 430" fill="none" aria-hidden="true">
 					<defs>
 						<pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
-							<circle cx="1" cy="1" r="1" fill="#8491B5" opacity=".2" />
+							<circle cx="1" cy="1" r="1" fill="#b9b890" opacity=".5" />
 						</pattern>
 					</defs>
 					<rect x="2" y="1" width="536" height="428" rx="18" fill="url(#grid)" />
 					<path class="connector" d="M270 112v42m-104 0h208m-208 0v35m104-35v35m104-35v35" />
 					<path class="connector connector-soft" d="M166 240v45m104-45v45m104-45v45m-208 0h208" />
-					<circle cx="270" cy="154" r="3" fill="#A7B3FF" />
-					<circle cx="166" cy="285" r="3" fill="#A7B3FF" />
-					<circle cx="270" cy="285" r="3" fill="#A7B3FF" />
-					<circle cx="374" cy="285" r="3" fill="#A7B3FF" />
+					<circle cx="270" cy="154" r="3" fill="#667030" />
+					<circle cx="166" cy="285" r="3" fill="#667030" />
+					<circle cx="270" cy="285" r="3" fill="#667030" />
+					<circle cx="374" cy="285" r="3" fill="#667030" />
 					<g class="diagram-card diagram-root">
 						<rect x="172" y="34" width="196" height="78" rx="12" />
 						<rect class="icon-back" x="188" y="52" width="38" height="38" rx="9" />
@@ -89,7 +89,7 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 						<text x="327" y="338">Adaptadores</text>
 					</g>
 					<text class="diagram-label" x="35" y="390">CADA PIEZA TIENE UN PROPÓSITO</text>
-					<path d="M35 402h470" stroke="#263148" />
+					<path d="M35 402h470" stroke="#b9b890" />
 				</svg>
 				<div class="floating-chip"><span></span> claridad antes que complejidad</div>
 			</div>
@@ -298,7 +298,7 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 		align-items: center;
 		gap: 9px;
 		margin: 0 0 19px;
-		color: var(--accent);
+		color: var(--color-primary);
 		font-size: 0.72rem;
 		font-weight: 700;
 		letter-spacing: 0.12em;
@@ -310,8 +310,8 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 		width: 7px;
 		height: 7px;
 		border-radius: 50%;
-		background: #9faeff;
-		box-shadow: 0 0 0 4px rgba(159, 174, 255, 0.1);
+		background: var(--color-secondary);
+		box-shadow: 0 0 0 4px rgba(var(--color-accent-rgb), 0.3);
 	}
 
 	h1,
@@ -323,7 +323,7 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 
 	.hero h1 {
 		margin-bottom: 23px;
-		color: #f1f3fb;
+		color: var(--color-ink);
 		font-size: clamp(2.6rem, 5.1vw, 4.25rem);
 		font-weight: 690;
 		letter-spacing: -0.065em;
@@ -331,13 +331,13 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 	}
 
 	.hero h1 span {
-		color: #a9b5ff;
+		color: var(--color-primary);
 	}
 
 	.hero-description {
 		max-width: 520px;
 		margin-bottom: 29px;
-		color: #aeb7ca;
+		color: var(--color-muted);
 		font-size: 1.02rem;
 		line-height: 1.78;
 	}
@@ -371,12 +371,12 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 	}
 
 	.button-primary {
-		color: #101527;
-		background: #aab5ff;
+		color: var(--color-background);
+		background: var(--color-primary);
 	}
 
 	.button-primary:hover {
-		background: #c1c9ff;
+		background: var(--color-secondary);
 	}
 
 	.button-primary svg,
@@ -391,14 +391,14 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 	}
 
 	.button-secondary {
-		border-color: rgba(178, 190, 222, 0.22);
-		color: #e2e6f1;
-		background: rgba(255, 255, 255, 0.025);
+		border-color: rgba(var(--color-secondary-rgb), 0.48);
+		color: var(--color-primary);
+		background: transparent;
 	}
 
 	.button-secondary:hover {
-		border-color: rgba(178, 190, 222, 0.42);
-		background: rgba(255, 255, 255, 0.06);
+		border-color: var(--color-secondary);
+		background: var(--color-surface);
 	}
 
 	.hero-proof {
@@ -432,7 +432,7 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 		width: 72%;
 		height: 70%;
 		border-radius: 50%;
-		background: rgba(81, 98, 188, 0.11);
+		background: rgba(var(--color-accent-rgb), 0.32);
 		content: "";
 		filter: blur(48px);
 	}
@@ -442,7 +442,7 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 		align-items: center;
 		gap: 8px;
 		margin: 0 0 8px 18px;
-		color: #8f9bb3;
+		color: var(--color-muted);
 		font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
 		font-size: 0.63rem;
 		letter-spacing: 0.12em;
@@ -453,8 +453,8 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 		width: 6px;
 		height: 6px;
 		border-radius: 50%;
-		background: #86d5b0;
-		box-shadow: 0 0 10px rgba(134, 213, 176, 0.5);
+		background: var(--color-secondary);
+		box-shadow: 0 0 10px rgba(var(--color-secondary-rgb), 0.35);
 	}
 
 	.architecture-diagram {
@@ -464,79 +464,79 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 
 	.connector,
 	.connector-soft {
-		stroke: #62729a;
+		stroke: var(--color-secondary);
 		stroke-width: 1.2;
 	}
 
 	.connector-soft {
-		stroke: #465472;
+		stroke: var(--color-accent);
 		stroke-dasharray: 3 5;
 	}
 
 	.diagram-card rect,
 	.diagram-note rect {
-		fill: #141e31;
-		stroke: #34425f;
+		fill: var(--color-background);
+		stroke: var(--color-accent);
 		stroke-width: 1;
 	}
 
 	.diagram-root > rect:first-child {
-		fill: #18233a;
-		stroke: #596995;
+		fill: var(--color-surface);
+		stroke: var(--color-secondary);
 	}
 
 	.diagram-card text {
-		fill: #e2e7f3;
+		fill: var(--color-ink);
 		font-family: Inter, ui-sans-serif, system-ui, sans-serif;
 		font-size: 11px;
 		font-weight: 600;
 	}
 
 	.diagram-card text.diagram-subtitle {
-		fill: #909db6;
+		fill: var(--color-muted);
 		font-size: 8px;
 		font-weight: 400;
 	}
 
 	.diagram-root .icon-back {
-		fill: #7586ed;
-		fill-opacity: 0.14;
-		stroke: #7586ed;
-		stroke-opacity: 0.4;
+		fill: var(--color-accent);
+		fill-opacity: 0.42;
+		stroke: var(--color-secondary);
+		stroke-opacity: 0.7;
 	}
 
 	.diagram-icon {
-		stroke: #b8c1ff;
+		stroke: var(--color-primary);
 		stroke-width: 1.4;
 		stroke-linecap: round;
 		stroke-linejoin: round;
 	}
 
 	.node {
-		fill: #97a5ff;
+		fill: var(--color-primary);
 	}
 
 	.node-purple {
-		fill: #c2a5ff;
+		fill: var(--color-secondary);
 	}
 
 	.node-green {
-		fill: #90d7b4;
+		fill: var(--color-accent);
 	}
 
 	.diagram-note rect {
-		fill: #111a2a;
-		stroke: #293650;
+		fill: var(--color-surface);
+		stroke: var(--color-accent);
 	}
 
 	.diagram-note text {
-		fill: #a3aec2;
+		fill: var(--color-muted);
 		font-family: Inter, ui-sans-serif, system-ui, sans-serif;
 		font-size: 8px;
 	}
 
 	.diagram-label {
-		fill: #77849c;
+		fill: var(--color-secondary);
 		font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
 		font-size: 8px;
 		letter-spacing: 0.12em;
@@ -550,11 +550,11 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 		align-items: center;
 		gap: 8px;
 		padding: 11px 13px;
-		border: 1px solid rgba(180, 194, 226, 0.16);
+		border: 1px solid rgba(var(--color-accent-rgb), 0.7);
 		border-radius: 9px;
-		color: #cad2e2;
-		background: #141c2b;
-		box-shadow: 0 12px 32px rgba(0, 0, 0, 0.24);
+		color: var(--color-ink);
+		background: var(--color-background);
+		box-shadow: 0 12px 32px rgba(var(--color-primary-rgb), 0.12);
 		font-size: 0.68rem;
 	}
 
@@ -563,7 +563,7 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 	.philosophy-section {
 		border-top: 1px solid var(--line);
 		border-bottom: 1px solid var(--line);
-		background: #101725;
+		background: var(--color-surface);
 	}
 
 	.intro-grid {
@@ -578,7 +578,7 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 	.section-heading h2,
 	.philosophy-inner h2 {
 		margin-bottom: 0;
-		color: #eef1f8;
+		color: var(--color-ink);
 		font-size: clamp(1.8rem, 3.4vw, 2.6rem);
 		font-weight: 650;
 		letter-spacing: -0.045em;
@@ -591,14 +591,14 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 
 	.intro-copy p {
 		margin-bottom: 15px;
-		color: #aeb7ca;
+		color: var(--color-muted);
 		font-size: 0.95rem;
 		line-height: 1.8;
 	}
 
 	.intro-copy p:last-child {
 		margin-bottom: 0;
-		color: #8f9bb1;
+		color: var(--color-primary);
 		font-size: 0.88rem;
 	}
 
@@ -630,7 +630,7 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 
 	.category-count {
 		padding-bottom: 5px;
-		color: #8692aa;
+		color: var(--color-secondary);
 		font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
 		font-size: 0.65rem;
 		letter-spacing: 0.1em;
@@ -645,9 +645,9 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 
 	.category-card {
 		min-height: 251px;
-		border: 1px solid rgba(173, 187, 220, 0.13);
+		border: 1px solid rgba(var(--color-accent-rgb), 0.8);
 		border-radius: 12px;
-		background: rgba(19, 27, 43, 0.72);
+		background: var(--color-background);
 		transition:
 			transform 180ms ease,
 			border-color 180ms ease,
@@ -656,8 +656,8 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 
 	.category-card:hover {
 		transform: translateY(-3px);
-		border-color: rgba(153, 168, 255, 0.36);
-		background: #141e30;
+		border-color: var(--color-secondary);
+		background: var(--color-surface);
 	}
 
 	.category-card-link {
@@ -684,40 +684,40 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 		height: 46px;
 		display: grid;
 		place-items: center;
-		border: 1px solid rgba(153, 168, 255, 0.16);
+		border: 1px solid rgba(var(--color-accent-rgb), 0.72);
 		border-radius: 11px;
-		color: #aab5ff;
-		background: rgba(105, 126, 235, 0.09);
+		color: var(--color-primary);
+		background: rgba(var(--color-accent-rgb), 0.24);
 	}
 
 	.icon-compass {
-		color: #9fd4c0;
-		background: rgba(93, 174, 139, 0.09);
-		border-color: rgba(123, 204, 169, 0.15);
+		color: var(--color-secondary);
+		background: rgba(var(--color-accent-rgb), 0.18);
+		border-color: rgba(var(--color-accent-rgb), 0.72);
 	}
 
 	.icon-blocks {
-		color: #c5a9ff;
-		background: rgba(144, 104, 210, 0.1);
-		border-color: rgba(180, 145, 239, 0.16);
+		color: var(--color-primary);
+		background: rgba(var(--color-accent-rgb), 0.28);
+		border-color: rgba(var(--color-accent-rgb), 0.72);
 	}
 
 	.icon-nodes {
-		color: #f1bb8a;
-		background: rgba(216, 145, 91, 0.09);
-		border-color: rgba(231, 173, 127, 0.16);
+		color: var(--color-secondary);
+		background: rgba(var(--color-accent-rgb), 0.18);
+		border-color: rgba(var(--color-accent-rgb), 0.72);
 	}
 
 	.icon-architecture {
-		color: #92c9f2;
-		background: rgba(80, 151, 202, 0.1);
-		border-color: rgba(125, 183, 222, 0.15);
+		color: var(--color-primary);
+		background: rgba(var(--color-accent-rgb), 0.28);
+		border-color: rgba(var(--color-accent-rgb), 0.72);
 	}
 
 	.icon-terminal {
-		color: #d5b0e9;
-		background: rgba(165, 110, 192, 0.1);
-		border-color: rgba(200, 153, 223, 0.15);
+		color: var(--color-secondary);
+		background: rgba(var(--color-accent-rgb), 0.18);
+		border-color: rgba(var(--color-accent-rgb), 0.72);
 	}
 
 	.card-arrow {
@@ -726,7 +726,7 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 		display: grid;
 		place-items: center;
 		border-radius: 50%;
-		color: #79869d;
+		color: var(--color-secondary);
 		transition:
 			color 180ms ease,
 			background 180ms ease,
@@ -744,13 +744,13 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 
 	.category-card:hover .card-arrow {
 		transform: translateX(2px);
-		color: #c0c9ff;
-		background: rgba(153, 168, 255, 0.1);
+		color: var(--color-primary);
+		background: rgba(var(--color-accent-rgb), 0.35);
 	}
 
 	.category-card h3 {
 		margin-bottom: 8px;
-		color: #e8ebf5;
+		color: var(--color-ink);
 		font-size: 1.05rem;
 		font-weight: 620;
 		letter-spacing: -0.02em;
@@ -759,7 +759,7 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 	.category-card p {
 		max-width: 340px;
 		margin-bottom: 20px;
-		color: #99a4ba;
+		color: var(--color-muted);
 		font-size: 0.82rem;
 		line-height: 1.65;
 	}
@@ -771,19 +771,19 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 		gap: 8px;
 		margin-top: auto;
 		padding-top: 13px;
-		border-top: 1px solid rgba(173, 187, 220, 0.1);
-		color: #8490a7;
+		border-top: 1px solid rgba(var(--color-accent-rgb), 0.72);
+		color: var(--color-muted);
 		font-size: 0.67rem;
 	}
 
 	.card-link-label {
-		color: #b1bcff;
+		color: var(--color-primary);
 		white-space: nowrap;
 	}
 
 	.method-section {
 		padding: 81px 0 86px;
-		background: #101725;
+		background: var(--color-background);
 	}
 
 	.method-heading {
@@ -816,14 +816,14 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 		right: 12px;
 		width: calc(100% - 82px);
 		height: 1px;
-		background: linear-gradient(90deg, #465575, rgba(70, 85, 117, 0.12));
+		background: linear-gradient(90deg, var(--color-accent), rgba(var(--color-accent-rgb), 0.16));
 		content: "";
 	}
 
 	.step-number {
 		display: block;
 		margin-bottom: 17px;
-		color: #8290aa;
+		color: var(--color-secondary);
 		font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
 		font-size: 0.68rem;
 		letter-spacing: 0.08em;
@@ -835,10 +835,10 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 		display: grid;
 		place-items: center;
 		margin-bottom: 17px;
-		border: 1px solid rgba(153, 168, 255, 0.21);
+		border: 1px solid rgba(var(--color-accent-rgb), 0.78);
 		border-radius: 10px;
-		color: #aab5ff;
-		background: rgba(105, 126, 235, 0.1);
+		color: var(--color-primary);
+		background: rgba(var(--color-accent-rgb), 0.3);
 	}
 
 	.step-icon svg {
@@ -853,7 +853,7 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 
 	.step h3 {
 		margin-bottom: 9px;
-		color: #e4e8f2;
+		color: var(--color-ink);
 		font-size: 0.92rem;
 		font-weight: 620;
 	}
@@ -861,7 +861,7 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 	.step p {
 		max-width: 230px;
 		margin-bottom: 0;
-		color: #929db2;
+		color: var(--color-muted);
 		font-size: 0.8rem;
 		line-height: 1.7;
 	}
@@ -881,9 +881,9 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 		align-items: center;
 		gap: 21px;
 		padding: 26px 28px;
-		border: 1px dashed rgba(173, 187, 220, 0.22);
+		border: 1px dashed rgba(var(--color-secondary-rgb), 0.42);
 		border-radius: 12px;
-		background: rgba(18, 26, 43, 0.56);
+		background: var(--color-background);
 	}
 
 	.empty-icon {
@@ -891,10 +891,10 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 		height: 54px;
 		display: grid;
 		place-items: center;
-		border: 1px solid rgba(153, 168, 255, 0.17);
+		border: 1px solid rgba(var(--color-accent-rgb), 0.72);
 		border-radius: 12px;
-		color: #aab5ff;
-		background: rgba(105, 126, 235, 0.09);
+		color: var(--color-primary);
+		background: rgba(var(--color-accent-rgb), 0.28);
 	}
 
 	.empty-icon svg {
@@ -908,7 +908,7 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 
 	.empty-lessons h3 {
 		margin: 0 0 6px;
-		color: #e6eaf4;
+		color: var(--color-ink);
 		font-size: 0.97rem;
 		font-weight: 630;
 	}
@@ -916,7 +916,7 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 	.empty-lessons p {
 		max-width: 610px;
 		margin: 0;
-		color: #9aa5ba;
+		color: var(--color-muted);
 		font-size: 0.82rem;
 		line-height: 1.65;
 	}
@@ -925,7 +925,7 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 		display: inline-flex;
 		align-items: center;
 		gap: 8px;
-		color: #b4beff;
+		color: var(--color-primary);
 		font-size: 0.8rem;
 		font-weight: 620;
 		text-decoration: none;
@@ -954,12 +954,12 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 
 	.lesson-card:hover {
 		transform: translateY(-2px);
-		border-color: rgba(153, 168, 255, 0.37);
+		border-color: var(--color-secondary);
 	}
 
 	.lesson-category {
 		margin-bottom: 13px;
-		color: #aab5ff;
+		color: var(--color-primary);
 		font-size: 0.68rem;
 		font-weight: 650;
 		letter-spacing: 0.05em;
@@ -968,13 +968,13 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 
 	.lesson-card h3 {
 		margin-bottom: 8px;
-		color: #e8ebf5;
+		color: var(--color-ink);
 		font-size: 1rem;
 	}
 
 	.lesson-card p {
 		margin-bottom: 17px;
-		color: #9aa5ba;
+		color: var(--color-muted);
 		font-size: 0.82rem;
 		line-height: 1.6;
 	}
@@ -984,14 +984,15 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 		align-items: center;
 		gap: 7px;
 		margin-top: auto;
-		color: #b4beff;
+		color: var(--color-primary);
 		font-size: 0.78rem;
 	}
 
 	.philosophy-section {
 		padding: 75px 0;
 		background:
-			radial-gradient(ellipse at 20% 50%, rgba(88, 105, 196, 0.1), transparent 46%), #101725;
+			radial-gradient(ellipse at 20% 50%, rgba(var(--color-accent-rgb), 0.18), transparent 46%),
+			var(--color-surface);
 	}
 
 	.philosophy-inner {
@@ -1007,10 +1008,10 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 		height: 86px;
 		display: grid;
 		place-items: center;
-		border: 1px solid rgba(153, 168, 255, 0.2);
+		border: 1px solid rgba(var(--color-accent-rgb), 0.8);
 		border-radius: 23px;
-		color: #aab5ff;
-		background: rgba(105, 126, 235, 0.09);
+		color: var(--color-primary);
+		background: rgba(var(--color-accent-rgb), 0.28);
 	}
 
 	.philosophy-symbol svg {
@@ -1028,13 +1029,13 @@ const categoryTitles = new Map(categories.map((category) => [category.slug, cate
 	}
 
 	.philosophy-inner h2 span {
-		color: #aab5ff;
+		color: var(--color-primary);
 	}
 
 	.philosophy-inner > div:last-child > p:last-child {
 		max-width: 760px;
 		margin-bottom: 0;
-		color: #a2adc1;
+		color: var(--color-muted);
 		font-size: 0.9rem;
 		line-height: 1.8;
 	}
