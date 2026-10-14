@@ -40,7 +40,7 @@ export const categories = [
 	{
 		slug: 'patrones',
 		title: 'Patrones de diseño',
-		navLabel: 'Patrones de diseño',
+		navLabel: 'Patrones',
 		description:
 			'Explora patrones creacionales, estructurales y de comportamiento, y cuándo tiene sentido aplicarlos.',
 		topics: 'Creacionales · Estructurales · Comportamiento',

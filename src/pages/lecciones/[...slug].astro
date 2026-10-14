@@ -154,6 +154,20 @@ const category = getCategory(lesson.data.category);
 		background: none;
 	}
 
+	.prose :global(pre.mermaid) {
+		display: flex;
+		justify-content: center;
+		padding: 24px 16px;
+		background: var(--surface);
+		border: 1px solid var(--line);
+		border-radius: 12px;
+	}
+
+	.prose :global(pre.mermaid svg) {
+		max-width: 100%;
+		height: auto;
+	}
+
 	.prose :global(blockquote) {
 		margin: 1.8em 0;
 		padding: 3px 0 3px 20px;

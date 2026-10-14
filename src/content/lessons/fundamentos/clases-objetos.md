@@ -6,7 +6,7 @@ order: 1
 draft: false
 ---
 
-> **En una frase:** una clase describe las caracteriscas y las acciones que tiene cierto elemento de la vida real; un objeto es creado a partir de esa descripción.
+> **En una frase:** una clase describe las características y las acciones que tiene cierto elemento del dominio; un objeto es una instancia concreta creada a partir de esa descripción.
 
 ## ¿Qué aprenderás?
 
@@ -18,12 +18,12 @@ Al finalizar esta lección podrás:
 
 ## 1. El problema que queremos resolver
 
-Imagina una tienda que registra pedidos. De cada pedido necesita guardar quién lo hizo, qué producto pidió, cuántas unidades quiere, cuánto cuesta cada una y cuanto debe pagar en total.
+Imagina una tienda que registra pedidos. De cada pedido necesita guardar quién lo hizo, qué producto pidió, cuántas unidades quiere, cuánto cuesta cada una y cuánto debe pagar en total.
 
 Una primera solución puede guardar cada dato en una variable y calcular el total por separado:
 
 ```java
-public class Main{
+public class Main {
     public static void main(String[] args) {
         String cliente = "Ana";
         String producto = "Libro";
@@ -39,57 +39,54 @@ public class Main{
 
 ```text
 Ana pidió 2 Libro
-Total: 25 
+Total: 25.0
 ```
 
-Esto sirve para un ejemplo pequeño. Pero, al añadir más pedidos, hay que crear y coordinar muchas mas variables, y recordar qué datos pertenecen a un solo pedido. También vamos a terminar repitiendo el cálculo en distintos lugares.
+Esto sirve para un ejemplo pequeño. Pero, al añadir más pedidos, hay que crear y coordinar muchas más variables, y recordar qué datos pertenecen a un solo pedido. También vamos a terminar repitiendo el cálculo en distintos lugares.
 
-Nos conviene representar cada pedido como una unidad: con sus propias caracteticas y sus propios comportamientos que se realizan en ellos. Las clases y los objetos permiten modelar esa idea.
+Nos conviene representar cada pedido como una unidad: con sus propias características y los comportamientos que operan sobre ellos. Las clases y los objetos permiten modelar esa idea.
 
 ## 2. Explicación intuitiva
 
-![Error al cargar imagen](../../../public/images/clases-objetos.jpg)
+![Analogía visual: la clase como molde y los objetos como instancias concretas](/images/clases-objetos.jpg)
 
+Piensa en la descripción de un pedido como un molde que indica qué información se guarda y qué operaciones se pueden hacer con ella. Esa descripción es la **clase**. Cada pedido que se crea a partir de ese molde es un **objeto**.
 
-Piensa en la descripción de un pedido como un molde que indica qué información se guarda y qué operaciones se pueden hacer con ella. Esa descripción es la **clase**. Cada pedido que se registra rellenando ese molde es un **objeto**.
+El molde puede indicar que todo pedido tiene un cliente, un producto, una cantidad de productos y un precio por unidad. Un pedido concreto (un objeto) puede ser el de Ana por dos libros; otro objeto distinto puede ser el de Luis por tres cuadernos. Ambos se crearon usando el mismo molde, pero los valores de sus datos (su estado) son diferentes e independientes.
 
-La ficha puede indicar que todo pedido tiene un cliente, un producto, una cantidad de productos y un precio por unidad. Un pedido concreto puede ser el de Ana por dos libros; otro, el de Luis por tres cuadernos. Ambos siguen la misma descripción, pero sus datos son distintos.
-
-**Límite de la analogía:** un objeto no es el relleno de un molde. Es una entidad que existe mientras se ejecuta el programa y cuyo estado puede cambiar cuando se usan sus operaciones.
-
-> **Nota**: Cuando hablamos de que el estado de un objeto cambiar, no referimos a que los datos de ese objeto pueden cambiar; Ana pidio 2 libros -> Ana pidio 5 libros. En este caso cambia la cantidad de los productos, cambio el estado del objeto.
+> **Nota:** Cuando decimos que el estado de un objeto cambia, nos referimos a que sus datos se modifican (por ejemplo: si Ana pidió 2 libros y luego actualiza a 5 libros, el atributo de cantidad cambia y, por ende, cambia el estado del objeto).
 
 ## 3. Definición técnica
 
-Una **clase** es una definición que agrupa atributos y métodos relacionados. Describe una clase de elementos que el programa puede representar; los nombres de las clases se escriben en pascal case.
+Una **clase** es una definición que agrupa atributos y métodos relacionados. Describe una clase de elementos que el programa puede representar; los nombres de las clases suelen escribirse por convención en PascalCase (UpperCamelCase).
 
 ```java
-    class CalculadoraInteligente{}
+class CalculadoraInteligente {}
 ```
 
-> **Nota**: Los atributos son las caracteristicas y los metodos son los comportamientos.
+> **Nota:** Los atributos representan las características o datos y los métodos representan los comportamientos o acciones.
 
-Un **objeto** es una instancia concreta de una clase. Tiene valores propios para sus atributos o tambien llamado estado interno y puede realizar las acciones descritas por sus métodos.
+Un **objeto** es una instancia concreta de una clase. Tiene valores propios para sus atributos (también llamado estado interno) y puede realizar las acciones descritas por sus métodos.
 
 ### Partes principales
 
-- **Atributos:** datos que describen el estado de un objeto. En Java se declaran como variables dentro de una clase; suelen escribirse en camel case.
+- **Atributos:** datos que describen el estado de un objeto. En Java se declaran como variables dentro de una clase; suelen escribirse por convención en camelCase.
 
 ```java
-    int cantidadDeEmpleados;
+int cantidadDeEmpleados;
 ```
 
-- **Métodos:** operaciones que representan el comportamiento de los objetos. Pueden consultar o modificar atributos y también pueden recibir información y devolver un resultado; tambien se escriben en camel case.
+- **Métodos:** operaciones que representan el comportamiento de los objetos. Pueden consultar o modificar atributos y también pueden recibir información y devolver un resultado; también se escriben por convención en camelCase.
 
 ```java
-    int sumarDosNumerosEnteros(int a, int b);
+int sumarDosNumerosEnteros(int a, int b);
 ```
 
 - **Constructor:** operación especial que se ejecuta al crear un objeto. Tiene el mismo nombre que la clase y permite preparar sus atributos iniciales. No declara un tipo de retorno.
 
 - **Objeto:** instancia creada a partir de una clase. Cada objeto mantiene sus propios valores para los atributos de instancia.
 
-La forma en que se instancian los objetos es usando los contructores de las clases.
+La forma en que se instancian los objetos es invocando los constructores de las clases.
 
 En Java, una clase puede definir un constructor que recibe datos iniciales. Si se necesita construir objetos de distintas maneras, una clase puede tener varios constructores; en esta introducción usaremos uno para mantener el ejemplo sencillo.
 
@@ -114,7 +111,7 @@ classDiagram
         +cambiarCantidad(int nuevaCantidad) void
     }
 
-    note for Pedido "La palabra void en java significa que un metodo no retorna nada"
+    note for Pedido "La palabra void en Java indica que un método no retorna ningún valor"
 ```
 
 ## 5. Ejemplo inicial: datos y operación por separado
@@ -153,7 +150,7 @@ class Pedido {
 
 class EjemploPedidos {
     void ejecutar() {
-        //Creamos los objetos usando el constructor de la clase Pedido, es decir creamos instancias de la clase Pedido
+        // Creamos los objetos usando el constructor de la clase Pedido (instancias concretas)
         Pedido pedidoAna = new Pedido("Ana", "Libro", 2, 12.50);
         Pedido pedidoLuis = new Pedido("Luis", "Cuaderno", 3, 10.00);
 
