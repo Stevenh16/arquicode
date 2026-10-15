@@ -1,12 +1,36 @@
 ---
 title: "Clases y objetos"
 description: "Aprende qué son las clases y los objetos en Java, y cómo se relacionan sus atributos, métodos y constructores."
-category: fundamentos-poo
+slug: "clases-objetos"
+category: "fundamentos-poo"
+subcategory: "fundamentos"
+type: "concept"
+level: "beginner"
 order: 1
 draft: false
+status: "published"
+estimatedMinutes: 20
+languages:
+  - java
+prerequisites:
+  - "fundamentos/introduccion-a-la-poo"
+related:
+  - "fundamentos/introduccion-a-la-poo"
+  - "fundamentos/atributos-metodos-y-constructores"
+tags:
+  - "clases"
+  - "objetos"
+  - "java"
+  - "fundamentos"
+learningObjectives:
+  - "Explicar la diferencia entre una clase y un objeto."
+  - "Reconocer atributos, métodos y constructores en una clase Java."
+  - "Crear objetos y describir cómo sus atributos guardan estados independientes."
 ---
 
 > **En una frase:** una clase describe las características y las acciones que tiene cierto elemento del dominio; un objeto es una instancia concreta creada a partir de esa descripción.
+
+En la lección anterior ([Introducción a la POO](/lecciones/introduccion-a-la-poo/)) vimos cómo surge la POO para evitar la dispersión de datos y funciones del enfoque procedimental. En esta lección daremos el siguiente paso práctico: aprenderemos a definir formalmente una **clase**, cómo instanciar **objetos** independientes y cómo operan sus atributos, métodos y constructores en Java.
 
 ## ¿Qué aprenderás?
 
@@ -318,4 +342,6 @@ La solución ilustra la estructura de clases y objetos; los títulos y nombres s
 
 ## 13. Continúa aprendiendo
 
-Puedes volver a la ruta de [Fundamentos de POO](/categorias/fundamentos-poo/) para explorar las próximas lecciones cuando estén publicadas.
+- **Lección anterior:** [Introducción a la POO](/lecciones/introduccion-a-la-poo/)
+- **Siguiente lección recomendada:** [Atributos, métodos y constructores](/lecciones/atributos-metodos-y-constructores/) — donde aprenderás a definir constructores, el uso de this, miembros estáticos y sobrecarga.
+- **Ruta de aprendizaje:** [Fundamentos de POO](/categorias/fundamentos-poo/) para explorar las próximas lecciones cuando estén publicadas.
